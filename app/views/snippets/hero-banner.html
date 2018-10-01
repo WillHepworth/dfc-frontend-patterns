@@ -1,0 +1,56 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Hero banner' %}
+{% set snippetLive = "no" %}
+{% set snippetDescription = "The top section found on the Explore careers home page. This would typically contain the header and potentially key action for the service it is being used on. (In the case of Explore careers, this is search)." %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        Test
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button js-copy-button" aria-live="assertive">Copy</button>
+        HTML
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" aria-live="assertive">Copy</button>
+        SCSS
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

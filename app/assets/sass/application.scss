@@ -1,0 +1,139 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+
+// Import GOV.UK Frontend
+@import "node_modules/govuk-frontend/all";
+
+
+// Patterns that aren't in Frontend
+@import "patterns/check-your-answers";
+@import "patterns/task-list";
+@import "patterns/related-items";
+
+// Components that aren't in Frontend
+@import "components/cookie-banner";
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+/*Explore Careers Defaults*/
+
+$ec-green: #207e77;
+$white: govuk-colour("white");
+$blue: govuk-colour("blue");
+$grey: #bfc1c3;
+
+* {
+    font-family: "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ec-hero {
+    background-color: $ec-green;
+    color: $white;
+    padding: 40px 0;
+
+    h1 {
+        color: $white;
+        padding: 0;
+        margin: 0;
+
+        span {
+            font-weight: normal;
+            color: darken($ec-green, 10%);
+        }
+    }
+
+    p {
+        color: $white;
+        margin-top: 20px;
+    }
+
+    .ec-button {
+        background-color: $white;
+        color: $ec-green;
+        font-weight: bold;
+
+        &:hover {
+            background-color: rgba(255,255,255,0.9);
+        }
+        }
+}
+
+.ec-hero-small {
+    padding: 0;
+}
+
+.snippet {
+    h1 {
+        margin-bottom: 5px;
+    }
+
+    .snippet-description {
+        margin-top: 30px;
+    }
+
+    .snippet-example {
+        border: 1px solid $grey;
+        margin-bottom: -1px;
+        padding: 20px;
+    }
+
+    .snippet-tabs {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: inline-block;
+        border: 1px solid $grey;
+        box-sizing: border-box;
+        z-index: 1;
+        position: relative;
+    }
+
+    .snippet-tabs__item {
+        float: left;
+        display: block;
+        padding: 15px;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        border-left: none;
+        border-right: none;
+        outline: none;
+        color: #005ea5;
+        background: inherit;
+        font-weight: bold;
+        text-decoration: none;
+        margin: -1px 0;
+    }
+
+    .snippet-tabs__item[aria-selected="true"] {
+        border-color: $blue;
+        background: #f0f0f0;
+    }
+
+    .snippet-tabs__container {
+        position: relative;
+        border: 1px solid $grey;
+        box-sizing: border-box;
+        overflow: auto;
+        padding: 20px;
+        background: #f0f0f0;
+        top: -7px;
+    }
+
+    .snippet-copy-button {
+        position: absolute;
+        z-index: 1;
+        top: 15px;
+        right: 15px;
+        min-width: 80px;
+        padding: 4px 10px 0;
+        border: 1px solid #00823b;
+        color: #00823b;
+        background-color: #fff;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}

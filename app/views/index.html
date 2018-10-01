@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% set releaseVersion = '0.1' %}
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+{% block after_header %}
+<p>Test</p>
+{% endblock %}
+
+{% block main %}
+<div class="ec-hero">
+    <div class="govuk-width-container">
+
+        <section class="govuk-main-wrapper {{ mainClasses }}" id="hero">
+            <h1 class="govuk-heading-l">
+                {{serviceName}}
+                <span class="govuk-caption-l">Version {{releaseVersion}}</span>
+            </h1>
+            <p class="govuk-body-l">A reference for design patterns and snippets used in front end development on explore careers. These should be used to maintain consistency accross the service, and only when GOV.UK design patterns are deemed to not meet user needs.</p>
+            <a href="#" class="govuk-button ec-button">Get started</a>
+        </section>
+    </div>
+</div>
+
+
+<div class="govuk-width-container">
+    <section class="govuk-main-wrapper">
+        <h2 class="govuk-heading-m">Tried and tested snippets</h2>
+        <p>The following designs have been through multiple rounds of user research and were approved via GDS assessment. All snippets are user need driven.</p>
+        <ul class="govuk-list">
+            <li><a href="/snippets/hero-banner">Hero Banner</a></li>
+        </ul>
+
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
+
+        <h2 class="govuk-heading-m">Expermiental snippets</h2>
+        <p>Designs that are currently a work in progress or those that were initially looked at but didn't make it to the live service.</p>
+        <ul class="govuk-list">
+            <li><a href="#">Snippet 1</a></li>
+        </ul>
+
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
+
+    </section>
+</div>
+
+{% endblock %}
