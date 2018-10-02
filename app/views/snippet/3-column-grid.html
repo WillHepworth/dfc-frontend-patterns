@@ -1,0 +1,111 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Three column content grid' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "The three column content grid offers an alternative to the default GDS one third layout. Unlike the GDS default, the three column grid transitions down to two columns then a single column based on display size. Additionally it will split all content within it evenly over the three columns." %}
+{% set snippetURL = "3-column-grid" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;ul class=&quot;ec-grid-3&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 6&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 7&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 8&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 9&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-grid-3 {
+    li {
+        padding-bottom: 0.263em;
+        margin-top: 0.263em;
+        display: inline-block;
+        width: 100%;
+    }
+
+    @include media(tablet) {
+        -moz-column-count: 2;
+        -moz-column-gap: 30px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 30px;
+        column-count: 2;
+        column-gap: 30px;
+    }
+
+    @include media(desktop) {
+        -moz-column-count: 3;
+        -moz-column-gap: 30px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 30px;
+        column-count: 3;
+        column-gap: 30px;
+    }
+
+    a {
+        @include bold-19;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>The 3 colum content grid should be used for simplistic content. Anything within the grid will be split evenly between all columns, this therefore lends itself well to lists or text based content. </p>
+<p>The class can be applied to a list or wrapping div. With a list being used in the live example.</p>
+<p>Do not use this snippet for overall page layouts, it will not allow you to control what appears in which column.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}

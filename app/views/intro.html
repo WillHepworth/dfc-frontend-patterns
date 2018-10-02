@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set releaseVersion = '0.1' %}
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+{% block after_header %}
+<p>Test</p>
+{% endblock %}
+
+{% block main %}
+<div class="ec-hero ec-hero-small">
+    <div class="govuk-width-container">
+        <section class="govuk-main-wrapper {{ mainClasses }}" id="hero">
+            <h1 class="govuk-heading-m"><a href="/">{{serviceName}}</a></h1>
+        </section>
+    </div>
+</div>
+
+<div class="govuk-width-container">
+    <section class="govuk-main-wrapper">
+        <h2 class="govuk-heading-m">About this site</h2>
+        <p>This site was set up to provide access to reusable markup snippets for all projects sitting under the National Careers Service. The ultimate aim is to enable collaborative working to better take place between all designers on all projects whilst maintaining design and markup consistency on citizen facing services.</p>
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
+
+        <h2 class="govuk-heading-m">Before you begin</h2>
+        <p>All markup referenced on Explore careers snippets has a number of dependencies. You cannot simply grab the HTML, compile the SCSS and have everything working.</p>
+        <p>So before you begin you'll need to do the following</p>
+        <h3>Install and refence the alpha govuk front end toolkit</h3>
+        <div class="govuk-inset-text">
+            <p>On Explore careers we use NPM to install any dependencies then reference these in our SCSS / HTML where required.</p>
+            <p>Further information and an installation guide can be found on <a href="https://github.com/alphagov/govuk_frontend_toolkit">https://github.com/alphagov/govuk_frontend_toolkit</a> </p>
+        </div>
+
+        <h3>Install and refence govuk elements</h3>
+        <div class="govuk-inset-text">
+            <p>As with the govuk toolkit, we install elements using NPM then reference it in our SCSS. You'll also need to do this prior to using Explore Careers Snippets.</p>
+            <p>Further information and an installation guide can be found on <a href="https://github.com/alphagov/govuk_elements">https://github.com/alphagov/govuk_elements</a> </p>
+        </div>
+
+        <h3>Grab the Explore Careers base SCSS</h3>
+        <div class="govuk-inset-text">
+            <p>There will be numerous references to this in the SCSS snippets found accross the site. In order for your SCSS snippets to compile this will need to be referenced before them.</p>
+            <p>You can download the <a href="/public/references/ExploreCareers-Base.scss" download>ExploreCareers-Base SCSS file here</a>.</p>
+            <p class="govuk-error-message">Note: At the top of this file you'll find references to various GOVUK toolkit and elements SCSS files, you'll need to update the location these are being imported from.</p>
+        </div>
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
+
+    </section>
+</div>
+
+{% endblock %}

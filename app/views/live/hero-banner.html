@@ -1,0 +1,48 @@
+{% extends "live.html" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+<header class="homepage-top">
+    <div class="content-container">
+        <div class="grid-row" data-sf-element="Row">
+            <div class="column-two-thirds">
+
+                <div>
+                    <div><h1 class="heading-xlarge" id="site-header">Explore careers</h1><p class="lede">Find out what a job involves and if it's right for you.</p></div>
+
+                </div><form action="/home/Search/" class="site-search ui-front" id="header-search" method="post">
+                    <div class="header-search-content">
+                        <label for="SearchTerm">Enter a job title</label>
+
+                        <div class="search-input-wrapper">
+                            <input class="search-input js-search-focus js-autocomplete ui-autocomplete-input" data-autocomplete-fuzzysearch="True" data-autocomplete-maxnumberdisplyed="5" data-autocomplete-minlength="2" data-autocomplete-source="/searchautocomplete" id="SearchTerm" name="SearchTerm" type="search" value="" autocomplete="off">
+                        </div>
+                        <input class="submit" type="submit" value="Search">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

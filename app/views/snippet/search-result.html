@@ -1,0 +1,126 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Detailed search results' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "The Explore careers search result snippet differs slightly from the GDS default in that it contains additional information about the job profile it relates to. In our results we include salary and the catergory that the job profile sits within, the content displayed is entirely adaptable though." %}
+{% set snippetURL = "search-result" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;ol class=&quot;ec-results-list&quot;&gt;
+    &lt;li&gt;
+        &lt;h3&gt;&lt;a href=&quot;#&quot;&gt;Nurse&lt;/a&gt;&lt;/h3&gt;
+        &lt;p class=&quot;meta&quot;&gt;&lt;span class=&quot;sr-hidden&quot;&gt;Alternative titles for this job include &lt;/span&gt;Adult nurse&lt;/p&gt;
+        &lt;p class=&quot;ec-result-description&quot;&gt;Nurses care for adults who are sick, injured or have physical disabilities.&lt;/p&gt;
+        &lt;p class=&quot;ec-results-salary&quot;&gt;Salary: &lt;span class=&quot;dfc-code-search-jpSalary&quot;&gt;&amp;pound;33,800 to &amp;pound;37,960&lt;/span&gt;&lt;/p&gt;
+        &lt;p class=&quot;ec-results-categories&quot;&gt;Found in:&lt;a href=&quot;#&quot;&gt;Healthcare&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 30px 0;
+
+    li {
+        max-width: 32.5em;
+        margin: 0;
+        padding: 0 0 15px;
+
+        @include media(tablet) {
+            padding: 0 0 40px;
+        }
+    }
+
+    h3 {
+        @include core-24;
+        margin: 0 0 0.25em 0;
+
+            a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+
+    .ec-result-description {
+        margin: 0 0 0.5em 0;
+        @include core-19;
+    }
+
+    .meta {
+        color: $grey-1;
+        @include core-16;
+    }
+
+    .ec-results-salary {
+        @extend .bold-xsmall;
+        margin-bottom: 0.75em;
+    }
+
+    .ec-results-categories {
+        @extend .grey;
+        @extend .font-xsmall;
+
+        a:after {
+            content: ",";
+        }
+
+        a:last-child:after {
+            display: none;
+        }
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>This snippet should be used when further information is seen as being beneficial to the citizen when using search. As with all enhancements on the GDS patterns, this will need to be backed up by appropriate user research.</p>
+<p>There are three additional pieces of information being displayed here, the alternative title, salary and category links. You can adapt and remove these where neccessary to suit the content you wish to provide.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}

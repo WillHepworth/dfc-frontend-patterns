@@ -1,0 +1,198 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Hero banner' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "The top section found on the Explore careers home page. This would typically contain the header and potentially key action for the service it is being used on. (In the case of Explore careers, this is search)." %}
+{% set snippetURL = "hero-banner" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;header class=&quot;ec-hero&quot;&gt;
+    &lt;div class=&quot;content-container&quot;&gt;
+        &lt;div class=&quot;grid-row&quot; data-sf-element=&quot;Row&quot;&gt;
+            &lt;div class=&quot;column-two-thirds&quot;&gt;
+            &lt;div&gt;
+                &lt;h1 class=&quot;heading-xlarge&quot; id=&quot;site-header&quot;&gt;Explore careers&lt;/h1&gt;
+                &lt;p class=&quot;lede&quot;&gt;Find out what a job involves and if it&apos;s right for you.&lt;/p&gt;
+            &lt;/div&gt;
+                &lt;form action=&quot;/home/Search/&quot; class=&quot;site-search ui-front&quot; id=&quot;header-search&quot; method=&quot;post&quot;&gt;
+                    &lt;div class=&quot;header-search-content&quot;&gt;
+                        &lt;label for=&quot;SearchTerm&quot;&gt;Enter a job title&lt;/label&gt;
+                        &lt;div class=&quot;search-input-wrapper&quot;&gt;
+                            &lt;input class=&quot;search-input js-search-focus&quot; id=&quot;SearchTerm&quot; name=&quot;SearchTerm&quot; type=&quot;search&quot; value=&quot;&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;input class=&quot;submit&quot; type=&quot;submit&quot; value=&quot;Search&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.js-enabled {
+    .ec-hero {
+        #header-search {
+            background: $white;
+        }
+
+        label {
+            @include core-19;
+            line-height: 40px !important;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            z-index: 5;
+            text-indent: 15px;
+            color: #6f777b;
+            width: 100%;
+            box-sizing: border-box;
+            white-space: nowrap;
+            padding-right: 43px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            background: transparent;
+
+            &:focus, &.focus {
+                background: $white;
+            }
+        }
+    }
+}
+
+.ec-hero {
+    background: $careers-turquoise;
+    color: $white;
+    padding: 25px 30px 15px;
+
+    @include media(tablet) {
+        padding: 40px 30px 30px;
+    }
+
+    .content-container {
+        @include media(mobile) {
+            margin: 0 -15px;
+        }
+
+        @include media(tablet) {
+            margin: 0;
+        }
+
+        @include media(desktop) {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+    }
+
+    #site-header {
+        margin: 0 0 30px 0;
+    }
+
+    #header-search {
+        position: relative;
+        margin-bottom: 30px;
+        @extend %contain-floats;
+    }
+
+    .search-input-wrapper {
+        @include box-sizing(border-box);
+        padding-right: 40px;
+        margin-right: -40px;
+        float: left;
+        width: 100%;
+    }
+
+    .search-input {
+        position: relative;
+        @include box-sizing(border-box);
+        z-index: 10;
+        width: 100%;
+        padding: 6px;
+        @include core-19;
+        margin: 0;
+        border: 0;
+        outline-offset: 0;
+        height: 40px;
+        background-color: white;
+
+        &:focus {
+            z-index: 1000;
+        }
+    }
+
+    .submit {
+        @include box-sizing(border-box);
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        overflow: hidden;
+        text-indent: 50000px;
+        background: $black;
+        background-image: file-url("icon-search-2x.png");
+        background-repeat: no-repeat;
+        background-position: 60% 50%;
+        background-size: 24px;
+        float: left;
+        padding: 6px;
+        border: 0;
+        color: $white;
+        z-index: 900;
+        position: relative;
+    }
+}            </code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>The hero baner should typically only be used on the home page of your product/service. It's designed to contain key content describing what the product offers along with the key interaction you wish users to have with your product.</p>
+<p>The markup provided includes the search feature based on the gov.uk homepage search. If you do not require this simply remove the form section and the corresponding SCSS from the snippet</p>
+<p>Try to avoid placing too much content within the banner itself. Users typicaly expect more content on a page to sit below it. Having some of that visible on mobile and desktop devices is advisable.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}

@@ -41,6 +41,15 @@ $grey: #bfc1c3;
             font-weight: normal;
             color: darken($ec-green, 10%);
         }
+
+        a {
+            text-decoration: none;
+            color: $white;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     p {
@@ -75,7 +84,28 @@ $grey: #bfc1c3;
     .snippet-example {
         border: 1px solid $grey;
         margin-bottom: -1px;
-        padding: 20px;
+        position: relative;
+
+        .snippet-example-newwindow {
+            position: absolute;
+            background-color: $grey;
+            padding: 3px 8px;;
+            font-size: 12px;
+            text-decoration: none;
+
+        }
+
+        iframe {
+            border: none;
+            resize: both;
+            overflow: auto;
+            max-width: 100%;
+            background-color: $white;
+            width: 100%;
+            height: 320px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
     }
 
     .snippet-tabs {
@@ -119,6 +149,10 @@ $grey: #bfc1c3;
         padding: 20px;
         background: #f0f0f0;
         top: -7px;
+
+        pre {
+            background-color: transparent !important;
+        }
     }
 
     .snippet-copy-button {

@@ -6,7 +6,18 @@ if (window.console && window.console.info) {
 }
 
 $(document).ready(function () {
-  window.GOVUKFrontend.initAll()
+    window.GOVUKFrontend.initAll()
+
+    var clipboard = new ClipboardJS('.snippet-copy-button');
+    clipboard.on('success', function (e) {
+
+    });
+
+    $(".snippet-copy-button").click(function() {
+        $(".snippet-copy-button").text('COPY');
+        $(this).text('COPIED');
+    });
+
 })
 
 // Copy text button
