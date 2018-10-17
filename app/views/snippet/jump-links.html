@@ -1,0 +1,135 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Jump links' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "A customised adaptation of the default GDS jump links list. Created with the intention of increasing user engagement and ultimately ." %}
+{% set snippetURL = "jump-links" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;nav aria-label=&quot;skip to your documents&quot; class=&quot;ec-jump-links&quot; role=&quot;navigation&quot;&gt;
+    &lt;ol class=&quot;list list-number ec-jump-links-anchorlinks&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link text goes here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link text goes here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link text goes here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link text goes here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link text goes here&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-jump-links {
+    border-bottom: none;
+
+           ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+               li {
+            font-weight: 700;
+            margin: 0;
+            font-size: 16px;
+            display: inline-block;
+            width: 100%;
+            @extend %contain-floats;
+
+            &:after {
+                    content: "";
+                    border: solid $govuk-blue;
+                    border-width: 0 3px 3px 0;
+                    display: inline-block;
+                    padding: 3px;
+                    margin: 6px;
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                    float: right;
+                }
+
+
+            a {
+                color: $black;
+                width: 100%;
+                padding: 8px 10px;
+                text-decoration: none;
+                float: left;
+                box-sizing: border-box;
+                background-color: $grey-3;
+                border-radius: 3px;
+
+                                &:hover {
+                    background-color: $govuk-blue;
+                    color: $white;
+
+                                &:after {
+                        border: solid $white;
+                        border-width: 0 3px 3px 0;
+                    }
+                }
+            }
+        }
+
+        @include media(tablet) {
+            -moz-column-count: 2;
+            -moz-column-gap: 25px;
+            -webkit-column-count: 2;
+            -webkit-column-gap: 25px;
+            column-count: 2;
+            column-gap: 25px;
+            margin-top: -5px;
+        }
+    }
+}
+</code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>The redesigned GDS jumplinks should only typically be used in places where that standard GDS link list design doesn't envoke enough user engagement. This updated design should always be tested against the original to provide proof that the updated version is beneficial when your product is assessed.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>In order to get to a conclusive state that this design provided the best engagement for users, without distracting from the content itself, it went through AB testing on the BAU service. The details and results of those can be found on confluence: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/DFC/pages/324698399/A+B+Testing+Plan+Sprint+26+27">https://skillsfundingagency.atlassian.net/wiki/spaces/DFC/pages/324698399/A+B+Testing+Plan+Sprint+26+27</a></p>
+
+
+
+
+
+
+
+
+    {% endblock %}

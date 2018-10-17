@@ -1,0 +1,153 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Feedback survey' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "A simplistic banner aimed at capturing user feedback via a link to a survey on a seperate page." %}
+{% set snippetURL = "feedback-survey" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="JS-tab" id="JS" class="snippet-tabs__item" tabindex="-1">
+            Javascript
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;div class=&quot;ec-survey_container&quot;&gt;
+    &lt;div class=&quot;ec-survey_content content-container&quot;&gt;
+        &lt;div class=&quot;ec-js-survey-header&quot;&gt;
+            &lt;div&gt;&lt;h3 class=&quot;heading-small&quot;&gt;&lt;span class=&quot;sr-hidden&quot; id=&quot;survey&quot;&gt;Feedback survey &lt;/span&gt;Help us improve this service&lt;/h3&gt;&lt;a class=&quot;ec-survey_close ec-js-survey_close&quot; href=&quot;#&quot;&gt;Close&lt;/a&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;ec-js-survey-intro&quot;&gt;
+            &lt;div&gt;&lt;a class=&quot;ec-survey_open ec-survey_link&quot; style=&quot;margin-left:0;&quot; href=&quot;/feedback-survey&quot;&gt;Take a short survey to give us your feedback&lt;/a&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-survey_container {
+    @include core-19;
+    color: $white;
+    @extend %contain-floats;
+    padding: 0 0 1em 0;
+    background-color: darken($careers-turquoise, 5%);
+    position: relative;
+    display: none;
+    overflow: hidden;
+    border-bottom: 1px solid darken($careers-turquoise, 10%);
+
+    .ec-survey_content {
+        @extend %contain-floats;
+        @include box-sizing (border-box);
+        position: relative;
+    }
+
+    .ec-survey_close, .ec-survey_open {
+        color: $white;
+        padding: 0;
+        cursor: pointer;
+        text-decoration: underline;
+        font-weight: normal;
+    }
+
+    .ec-survey_open {
+        float: left;
+    }
+
+    .ec-survey_close {
+        top: 0;
+        right: 0;
+        position: absolute;
+        text-decoration: underline;
+    }
+
+    .ec-survey_link {
+        color: $white;
+        margin-top: 0.65em;
+        display: inline-block;
+        @include core-16;
+        margin-left: 1em;
+
+        @include media(mobile) {
+            margin-left: 0;
+        }
+    }
+}
+
+.ec-survey_container.visible {
+    display: block;
+}</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="JS-tab" aria-labelledby="JS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#JS-tab">Copy</button>
+        <pre id="JS-content"><code class="language-css">$(".ec-js-survey_open").click(function () {
+    $(".ec-js-survey-intro").addClass("js-hidden");
+});
+
+$(".ec-js-survey_close").click(function () {
+    GOVUK.cookie('survey', 'dismissed', { days: 31 });
+    $(".ec-survey_container").removeClass("visible");
+});
+
+if (GOVUK.cookie('survey') !== "dismissed") {
+    $(".ec-survey_container").addClass("visible");
+};
+
+$(".ec-survey_link").click(function () {
+    GOVUK.cookie('survey', 'dismissed', { days: 31 });
+});</code></pre>
+    </div>
+
+</div>
+<h2>When to use</h2>
+<p>The feedback survey banner should be used as a way to direct users to a feedback form or page. It has been designed to appear until dismissed and so can therefore be used accross all pages on your service if required.</p>
+
+
+<h2>Dependencies</h2>
+<p>The survey banner relies on the GOVUK cookie javascript. This should be packaged as part of the GOV.UK Template, without this the banner will be permenantly hidden. You can remove the display: none property from it's container if you wish to display it without JS.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}

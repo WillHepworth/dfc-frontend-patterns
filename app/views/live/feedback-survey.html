@@ -1,0 +1,33 @@
+{% extends "live.html" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+<div class="survey_container">
+    <div class="survey_content content-container">
+        <div class="js-survey-header">
+            <div><h3 class="heading-small"><span class="sr-hidden" id="survey">Feedback survey </span>Help us improve this service</h3><a class="survey_close js-survey_close" href="#">Close</a></div>
+        </div>
+        <div class="js-survey-intro">
+            <div><a class="survey_open survey_link" style="margin-left:0;" href="/feedback-survey">Take a short survey to give us your feedback</a></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
