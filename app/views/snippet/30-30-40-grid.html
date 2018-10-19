@@ -1,0 +1,101 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = '30 30 40 Grid' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "Created as an alternative to the typical GDS 3 colum grid. This should only be used where the GDS 3 column layout isn't appropriate for the content it contains." %}
+{% set snippetURL = "30-30-40-grid" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;div class=&quot;content-container&quot;&gt;
+    &lt;div class=&quot;grid-row&quot;&gt;
+        &lt;div class=&quot;ec-column-40&quot;&gt;
+            &lt;h2&gt;40% Column&lt;/h2&gt;
+            &lt;p&gt;Section content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;ec-column-30&quot;&gt;
+            &lt;h2&gt;30% Column&lt;/h2&gt;
+            &lt;p&gt;Section content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;ec-column-30&quot;&gt;
+            &lt;h2&gt;30% Column&lt;/h2&gt;
+            &lt;p&gt;Section content&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-column {
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.ec-column-40 {
+    @extend .ec-column;
+
+    @media (min-width: 750px) {
+        width: 40%;
+    }
+}
+
+.ec-column-30 {
+    @extend .ec-column;
+
+    @media (min-width: 750px) {
+        width: 30%;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>A 3 column layout that gives slightly prominence to one column, this was designed with Explore careers job profile content in mind due to the salary section of the hero needing a larger ammount of space. As stated above this layout should only be used as an alternative to the GDS 3 colum layout as a necessity, not an optional alternative.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}

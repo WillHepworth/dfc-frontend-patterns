@@ -7,3 +7,28 @@ body, html {
     padding: 0;
     background-color: white;
 }
+
+
+
+.ec-column {
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.ec-column-40 {
+    @extend .ec-column;
+
+    @media (min-width: 750px) {
+        width: 40%;
+    }
+}
+
+.ec-column-30 {
+    @extend .ec-column;
+
+    @media (min-width: 750px) {
+        width: 30%;
+    }
+}

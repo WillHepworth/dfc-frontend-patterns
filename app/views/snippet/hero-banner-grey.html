@@ -1,0 +1,99 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Hero banner grey' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "Utilised accross all Explore Careers job profiles, this provides an alternative to the prominent grey hero banner used on the home page." %}
+{% set snippetURL = "hero-banner-grey" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;header class=&quot;ec-hero=grey&quot;&gt;
+    &lt;div class=&quot;content-container&quot;&gt;
+        &lt;div class=&quot;grid-row&quot;&gt;
+            &lt;div class=&quot;column-desktop-two-thirds&quot;&gt;
+                &lt;h1 class=&quot;heading-xlarge&quot;&gt;Section header&lt;/h1&gt;
+                &lt;p&gt;Section content&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;  
+&lt;/header&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-hero-grey {
+    background-color: $grey-4;
+    width: 100%;
+    padding: 0;
+    @extend %contain-floats;
+    margin-bottom: 50px;
+
+    h1 {
+        font-size: 38px;
+        margin: 1em 0 0 0;
+        padding: 0;
+    }
+
+    h2 {
+        @include core-24;
+        color: $grey-1;
+    }
+
+    p {
+        @include core-19;
+        margin: 10px 0 30px 0;
+    }
+
+
+}</code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>An alternate standard hero banner for situations where there may be multiple pages whcih require a prominent piece of content at the top of the page.</p>
+<p>The example shown above shows the snippets use on Exploer careers at the top of the job profile. Content found within this preview is available through other snippets. The code provided simply provides the hero wrapper.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}

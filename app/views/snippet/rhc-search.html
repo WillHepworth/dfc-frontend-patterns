@@ -1,0 +1,138 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Right hand column search' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "An adapted right hand column search box aimed at increasing user interaction and giving it prominence as a key route to further job profiles." %}
+{% set snippetURL = "rhc-search" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;div class=&quot;ec-rhc-search&quot;&gt;
+    &lt;h3 class=&quot;heading-small&quot;&gt;Search further careers&lt;/h3&gt;
+    &lt;form class=&quot;site-search&quot; id=&quot;ec-rhc-search-box&quot; method=&quot;post&quot;&gt;
+            &lt;label for=&quot;search-main&quot;&gt; Enter a job title&lt;/label&gt;
+            &lt;div class=&quot;search-input-wrapper&quot;&gt;
+                &lt;input id=&quot;search-main&quot; class=&quot;search-input&quot;  /&gt;
+            &lt;/div&gt;
+            &lt;input class=&quot;submit&quot; type=&quot;submit&quot; value=&quot;Search&quot;&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-rhc-search {
+    background: $careers-turquoise;
+    color: $white;
+    padding: 10px;
+    margin-bottom: 30px;
+
+    h3 {
+        padding: 5px 0 10px 0 !important;
+        margin: 0 !important;
+    }
+
+    #ec-ehc-search-box {
+        position: relative;
+        @extend %contain-floats;
+    }
+
+    .search-input-wrapper {
+        @include box-sizing(border-box);
+        padding-right: 40px;
+        margin-right: -40px;
+        float: left;
+        width: 100%;
+    }
+
+    .search-input {
+        position: relative;
+        @include box-sizing(border-box);
+        z-index: 10;
+        width: 100%;
+        padding: 6px;
+        @include core-19;
+        margin: 0;
+        border: 0;
+        outline-offset: 0;
+        height: 40px;
+        background-color: white;
+
+        &:focus {
+            z-index: 1000;
+        }
+    }
+
+    .submit {
+        @include box-sizing(border-box);
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        overflow: hidden;
+        text-indent: 50000px;
+        background: $black;
+        background-image: file-url("icon-search-2x.png");
+        background-repeat: no-repeat;
+        background-position: 60% 50%;
+        background-size: 24px;
+        padding: 6px;
+        border: 0;
+        color: $white;
+        z-index: 900;
+        position: relative;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>This snippet replaces the GDS default search from right hand column pattern which can be seen on multiple gov.uk departmental sites. The ultime aim of the snippet is to increase user engagement, on explore careers search from job profile is out key route to further job profiles from the first profile a citizen hits.</p>
+
+<h2>Dependencies</h2>
+<p>The SCSS used for the right hand column search widget relies on some of the GDS toolkit defaults for includes and extends. It's therefore worth making sure you're using both the toolkit and govuk elements before utilisting this snippet.</p>
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}

@@ -1,0 +1,24 @@
+{% extends "live.html" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<div class="job-profile-search">
+    <h3 class="heading-small">Search further careers</h3>
+    <form id="job-profile-search-box" method="post">
+            <label for="search-main"> Enter a job title</label>
+            <div class="search-input-wrapper">
+                <input class="search-input" />
+            </div>
+            <input class="submit" type="submit" value="Search">
+    </form>
+</div>
+
+{% endblock %}
