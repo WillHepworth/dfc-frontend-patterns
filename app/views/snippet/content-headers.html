@@ -1,0 +1,105 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Alternative content headers' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "An alternative to the default GDS heading styles that enables large amounts of content to be scan read and quickly digested." %}
+{% set snippetURL = "content-headers" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+            <pre id="HTML-content"><code class="language-html">&lt;section class=&quot;ec-content-section&quot;&gt;
+    &lt;h2 class=&quot;heading-large&quot;&gt;Main section heading&lt;/h2&gt;
+    &lt;p&gt;Content text&lt;/p&gt;
+    &lt;section&gt;
+        &lt;h3&gt;Secondary section heading&lt;/h3&gt;
+        &lt;div class=&quot;ec-content-section-content&quot;&gt;
+            &lt;h4&gt;Tertiary section heading&lt;/h4&gt;
+            &lt;p&gt;Content text&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/section&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-content-section {
+    margin-bottom: 40px;
+
+    .ec-content-section-content {
+        padding-left: 20px;
+        border-left: 3px solid $grey-3;
+    }
+
+    h2 {
+        font-size: 28px !important;
+        font-weight: bold;
+        padding: 10px 0;
+        border-bottom: 1px solid $grey-3;
+
+        @media(desktop) {
+            margin-top: 1.8em !important;
+        }
+    }
+
+    h3 {
+        margin-bottom: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        background-color: $grey-3;
+        padding: 15px 20px;
+        border-radius: 5px;
+    }
+
+}
+</code>
+</pre>
+    </div>
+</div>
+<h2>When to use</h2>
+<p>This snippet has been designed as an alternative to the default GDS section headers. It provides better clarity to subsections of content within a key area, allowing for large ammounts of content to be scanned and consumed more quickly by the user.</p>
+<p>It should only be used when the default GDS headings have been tested and proven to make content overwhelming or difficult to understand.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<p>Test</p>
+
+
+
+
+
+
+
+
+    {% endblock %}
