@@ -1,4 +1,4 @@
-# Explore careers - Snippets
+# National Careers Service - Frontend Patterns
 A Gov UK prototype driven application documenting reusable markup and SCSS snippets used on Explore Careers projects.
 
 ## Installation instructions
