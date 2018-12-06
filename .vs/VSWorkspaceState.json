@@ -7,12 +7,7 @@
     "\\app\\data",
     "\\app\\views",
     "\\app\\views\\live",
-    "\\app\\views\\snippet",
-    "\\docs\\views",
-    "\\docs\\views\\templates",
-    "\\gulp",
-    "\\node_modules\\prismjs\\themes"
+    "\\app\\views\\snippet"
   ],
-  "SelectedNode": "\\app\\views\\index.html",
   "PreviewInSolutionExplorer": false
 }
