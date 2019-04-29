@@ -1,0 +1,149 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Progress bar' %}
+{% set snippetLive = "no" %}
+{% set snippetDescription = "This is a progress indicator which uses both a numerical and visual measure of progress." %}
+{% set snippetURL = "search-result.html" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;div class=&quot;ec-rhc-search&quot;&gt;
+    &lt;h3 class=&quot;heading-small&quot;&gt;Search further careers&lt;/h3&gt;
+    &lt;form class=&quot;site-search&quot; id=&quot;ec-rhc-search-box&quot; method=&quot;post&quot;&gt;
+            &lt;label for=&quot;search-main&quot;&gt; Enter a job title&lt;/label&gt;
+            &lt;div class=&quot;search-input-wrapper&quot;&gt;
+                &lt;input id=&quot;search-main&quot; class=&quot;search-input&quot;  /&gt;
+            &lt;/div&gt;
+            &lt;input class=&quot;submit&quot; type=&quot;submit&quot; value=&quot;Search&quot;&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-rhc-search {
+    background: $careers-turquoise;
+    color: $white;
+    padding: 10px;
+    margin-bottom: 30px;
+
+    h3 {
+        padding: 5px 0 10px 0 !important;
+        margin: 0 !important;
+    }
+
+    #ec-ehc-search-box {
+        position: relative;
+        @extend %contain-floats;
+    }
+
+    .search-input-wrapper {
+        @include box-sizing(border-box);
+        padding-right: 40px;
+        margin-right: -40px;
+        float: left;
+        width: 100%;
+    }
+
+    .search-input {
+        position: relative;
+        @include box-sizing(border-box);
+        z-index: 10;
+        width: 100%;
+        padding: 6px;
+        @include core-19;
+        margin: 0;
+        border: 0;
+        outline-offset: 0;
+        height: 40px;
+        background-color: white;
+
+        &:focus {
+            z-index: 1000;
+        }
+    }
+
+    .submit {
+        @include box-sizing(border-box);
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        overflow: hidden;
+        text-indent: 50000px;
+        background: $black;
+        background-image: file-url("icon-search-2x.png");
+        background-repeat: no-repeat;
+        background-position: 60% 50%;
+        background-size: 24px;
+        padding: 6px;
+        border: 0;
+        color: $white;
+        z-index: 900;
+        position: relative;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h2>What is this component?</h2>
+<p>We know that our users needs are not being met currently by the existing progress indicator. From including a visual progress indicator we observed our users needs to see their progress in an assessment being met much clearer.</p>
+
+<h2>Dependencies</h2>
+<p>The SCSS used for the progress bar is bespoke, and therefore has no dependencies.</p>
+
+
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<h3>Background</h3>
+<p>We’ve observed that a % complete indicator, accompanied by a progress bar, help the user to form an estimate of approximately how long is left, without being daunting. The <a href="https://design-system.service.gov.uk/patterns/task-list-pages/">task list</a> and <a href="https://design-system.service.gov.uk/patterns/step-by-step-navigation/">step-by-step navigation</a> aren’t applicable to specific user need that this pattern seeks to meet. These patterns apply to a multi-step process consisting of discrete tasks, which can be completed in a linear (step-by-step navigation) or non-linear (task list) manner. 
+
+Whereas our product is a single, discrete task (consisting of multiple ‘steps’ i.e. statements to respond to). </p>
+<h3>Research findings</h3>
+    <p>From discovery, we knew the existing pattern of “Question X of Y” wasn’t working. It caused a significant negative reaction in our users, contributing to only 1.6% of the existing service’s visitors finishing an assessment. We know some users who visit our service are at a difficult point in their life (such as being made redundant, or being involuntarily long-term unemployed), and we know that a users emotional state alters their perception of time, so seeing Question 1 of 56, was off-putting for a significant amount of users we researched with. We conducted further research to examine the impact of removing a progress indicator altogether. 
+    </p>
+    <p>We found there was a clear need to include something. Users wanted to see a visual progress indicator which helped to engage them and keep them informed of their progress visually as well as numerically. We knew that implementing either a progress bar or a numerical indicator in isolation wasn’t going to work.
+    </p>
+    <p>The need of a progress bar was a running theme across various sprints.
+        <p>Theme: ‘Users didn’t like that they didn’t know how long was left of the assessment’</p>
+    </p>
+    <a class="govuk-body" href="https://skillsfundingagency.atlassian.net/wiki/download/attachments/834240679/Customers%20long%20quiz%20-%20alpha_%20insights%20and%20evidence.docx?api=v2">Confluence report</a>
+
+
+
+
+
+
+    {% endblock %}
