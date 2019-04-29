@@ -1,0 +1,121 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Likert scale question format' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "The proposed pattern is for use when responding to a 5 point likert-scale type question and / or statement, designed to elicit the users sentiment." %}
+{% set snippetURL = "likert-scale-format.html" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;ul class=&quot;ec-grid-3&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 6&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 7&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 8&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 9&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.ec-grid-3 {
+    li {
+        padding-bottom: 0.263em;
+        margin-top: 0.263em;
+        display: inline-block;
+        width: 100%;
+    }
+
+    @include media(tablet) {
+        -moz-column-count: 2;
+        -moz-column-gap: 30px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 30px;
+        column-count: 2;
+        column-gap: 30px;
+    }
+
+    @include media(desktop) {
+        -moz-column-count: 3;
+        -moz-column-gap: 30px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 30px;
+        column-count: 3;
+        column-gap: 30px;
+    }
+
+    a {
+        @include bold-19;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}</code>
+</pre>
+    </div>
+</div>
+
+<h2>Dependencies</h2>
+<p>The components the pattern uses are <a href="https://design-system.service.gov.uk/styles/typography">gov.uk-heading-xl</a> paired with <a href="https://design-system.service.gov.uk/components/radios">inline radios</a> with the descriptive text centrally aligned below each radio.</p>
+
+<h2>Background</h2>
+<p> When eliciting user sentiment, the benefit of the Likert scale is that they use a questions use a scale. This means people are not forced to express an either-or opinion, allowing them to be neutral should they so choose. The pattern follows the gov.uk guiding principle of one thing per page.</p>
+<p>Use of the traditional vertical radio buttons creates a false hierarchy of content. User research which has shown that users react poorly to the traditional format of vertically stacked radios, which they interpret as the service ‘ranking’ them. Unlike other Government services where the user is required to answer as specifically as possible, this service is more nuanced. For example "I set myself targets when I have things to do, and usually meet them" doesn't have a binary answer.</p>
+<p>By using the horizontal format of radios we can avoid the perception that the product is ‘ranking’ them. The reason the radios are inline with the statement is to fit with right-to-left mental model of how english-speaking users (whom our service is solely available to).</p>
+
+<h2>When to use</h2>
+<p>The Likert scale format should be used for a question or statement that requires a Likert scale response. </p>
+<p>This should be used for questions or statements which are asking the user only one thing per page.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<h3>Research findings</h3>
+<p>When we tested vertically stacked format of radio buttons, users interpret the response at the top as the most desirable choice, which therefore biases the user towards the ranking they believe to be ‘best’.</p>
+<p>Theme: ‘Customers preferred the answer options presented horizontally for different reasons’</p>
+<a class="govuk-body" href="https://skillsfundingagency.atlassian.net/wiki/download/attachments/834240679/Customers%20short%20assessment%20-%20alpha_%20insights%20and%20evidence.pages?api=v2">Confluence report</a>
+
+
+
+
+
+
+
+    {% endblock %}
