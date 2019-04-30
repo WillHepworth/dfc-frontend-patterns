@@ -37,56 +37,215 @@
 
     <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
         <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
-        <pre id="HTML-content"><code class="language-html">&lt;ul class=&quot;ec-grid-3&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 3&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 4&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 5&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 6&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 7&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 8&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;List item 9&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code>
+        <pre id="HTML-content"><code class="language-html">&lt;fieldset class="govuk-fieldset app-question app-question--short" id="question"&gt;
+
+    &lt;div class="govuk-fieldset__legend govuk-fieldset__legend--l app-question__question"&gt;
+      &lt;h1 class="govuk-fieldset__heading" aria-hidden="true"&gt;
+        Question text
+      &lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class="app-question__answer govuk-radios govuk-radios--inline"&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-1" name="selected_answer" type="radio" checked="" value="StronglyAgree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-1"&gt;
+          Strongly Agree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-2" name="selected_answer" type="radio" checked="" value="Agree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-2"&gt;
+          Agree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-5" name="selected_answer" type="radio" checked="" value="Neutral"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-5"&gt;
+          Neutral
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-3" name="selected_answer" type="radio" checked="" value="Disagree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-3"&gt;
+          Disagree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-4" name="selected_answer" type="radio" checked="" value="StronglyDisagree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-4"&gt;
+          Strongly Disagree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+  &lt;/fieldset&gt;</code>
 </pre>
     </div>
 
     <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
         <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
-        <pre id="SCSS-content"><code class="language-css">.ec-grid-3 {
-    li {
-        padding-bottom: 0.263em;
-        margin-top: 0.263em;
-        display: inline-block;
-        width: 100%;
+        <pre id="SCSS-content"><code class="language-css">.app-question {
+  .govuk-radios__label {
+    padding-top: 11px; // vertically align labels to radio buttons
+  }
+}
+
+.app-question-progress {
+  @include govuk-media-query($from: 800px) {
+    margin-bottom: govuk-spacing(5);
+  }
+}
+
+.app-question--short {
+
+  .app-error + & {
+    border-left: 5px solid $govuk-error-colour;
+    padding-left: govuk-spacing(5);
+  }
+
+  .app-question__answer {
+    margin-bottom: govuk-spacing(3);
+  }
+
+  .govuk-radios__item {
+    clear: both;
+  }
+
+  @include govuk-media-query($from: 800px) {
+    margin-bottom: govuk-spacing(8);
+    clear: both;
+    position: relative;
+    display: table;
+    width: 100%;
+
+    .govuk-radios__item {
+      width: auto;
+      clear: both;
+
+      &:nth-child(3) {
+        // Prevent 'it depends' from wrapping into two lines
+        white-space: nowrap;
+      }
     }
 
-    @include media(tablet) {
-        -moz-column-count: 2;
-        -moz-column-gap: 30px;
-        -webkit-column-count: 2;
-        -webkit-column-gap: 30px;
-        column-count: 2;
-        column-gap: 30px;
+    .govuk-radios {
+      text-align: center;
+      position: relative;
     }
 
-    @include media(desktop) {
-        -moz-column-count: 3;
-        -moz-column-gap: 30px;
-        -webkit-column-count: 3;
-        -webkit-column-gap: 30px;
-        column-count: 3;
-        column-gap: 30px;
+    .govuk-radios__item {
+      position: relative;
+      padding-left: 0;
+      width: 20%;
+      display: block;
+      text-align: center;
+      float: left;
+      clear: none;
+      margin: 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
-    a {
-        @include bold-19;
-        text-decoration: none;
+    .govuk-radios__input + .govuk-radios__label {
 
-        &:hover {
-            text-decoration: underline;
-        }
+      &::before,
+      &::after {
+        left: calc(50% + 2px);
+        transform: translateX(-50%);
+      }
     }
+
+    .govuk-radios__label {
+      padding-top: 3em;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .govuk-error-message {
+      margin-bottom: 0;
+    }
+
+    .app-question__question,
+    .app-question__answer {
+      display: table-cell;
+      vertical-align: middle;
+      width: 40%;
+      position: relative;
+      height: 156px;
+    }
+
+    .app-question__answer {
+      width: 60%;
+    }
+
+    .govuk-fieldset__heading {
+      padding-right: govuk-spacing(5);
+
+    }
+
+    .app-question__question {
+      border-right: 1px solid govuk-colour('black');
+    }
+
+    .govuk-form-group {
+      margin-bottom: 0;
+    }
+
+  }
+}
+
+.app-question--long {
+  // margin-top: -20px;
+
+  .app-question__answer {
+    @include govuk-responsive-margin(6, "bottom");
+    @include govuk-responsive-margin(6, "top");
+  }
+
+  @include govuk-media-query($from: desktop) {
+    .app-question__question {
+      @include govuk-responsive-margin(6, "bottom");
+    }
+
+    .govuk-radios__item {
+      width: auto;
+      @include govuk-responsive-margin(6, "right");
+    }
+  }
+}
+
+.app-controls {
+  .app-button {
+    width: 100%;
+  }
+
+  .app-button,
+  .app-button--outline {
+    @include govuk-media-query($from: desktop) {
+      margin-left: govuk-spacing(3);
+    }
+  }
+
+  .app-button--outline {
+    display: block;
+    text-align: center;
+    margin-bottom: govuk-spacing(3);
+    line-height: 1;
+    padding-top: 10px;
+    padding-bottom: 7px;
+    @include govuk-media-query($from: desktop) {
+      display: inline-block;
+    }
+  }
 }</code>
 </pre>
     </div>
