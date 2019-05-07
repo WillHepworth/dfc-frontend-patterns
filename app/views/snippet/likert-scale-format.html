@@ -1,0 +1,280 @@
+{% extends "snippet.html" %}
+
+{% set releaseVersion = '0.1' %}
+{% set snippetName = 'Likert scale question format' %}
+{% set snippetLive = "yes" %}
+{% set snippetDescription = "The proposed pattern is for use when responding to a 5 point likert-scale type question and / or statement, designed to elicit the users sentiment." %}
+{% set snippetURL = "likert-scale-format.html" %}
+
+
+{% block pageTitle %}
+{{serviceName}} - Home
+{% endblock %}
+
+
+
+
+
+{% block content %}
+ {% include "includes/snippetheader.html" %}
+
+
+
+<div class="snippet-example-wrapper tabs">
+    <div class="snippet-example">
+        <a href="/live/{{snippetURL}}.html" target="_blank" class="snippet-example-newwindow">Open this example in a new window</a>
+        <iframe src="/live/{{snippetURL}}.html"></iframe>
+    </div>
+    <div class="snippet-tabs" role="tablist">
+        <button role="tab" aria-selected="false" aria-controls="HTML-tab" id="HTML" class="snippet-tabs__item">
+            HTML
+        </button>
+        <button role="tab" aria-selected="false" aria-controls="SCSS-tab" id="SCSS" class="snippet-tabs__item" tabindex="-1">
+            SCSS
+        </button>
+    </div>
+
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="HTML-tab" aria-labelledby="HTML" hidden="">
+        <button class="snippet-copy-button" data-clipboard-target="#HTML-content">Copy</button>
+        <pre id="HTML-content"><code class="language-html">&lt;fieldset class="govuk-fieldset app-question app-question--short" id="question"&gt;
+
+    &lt;div class="govuk-fieldset__legend govuk-fieldset__legend--l app-question__question"&gt;
+      &lt;h1 class="govuk-fieldset__heading" aria-hidden="true"&gt;
+        Question text
+      &lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class="app-question__answer govuk-radios govuk-radios--inline"&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-1" name="selected_answer" type="radio" checked="" value="StronglyAgree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-1"&gt;
+          Strongly Agree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-2" name="selected_answer" type="radio" checked="" value="Agree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-2"&gt;
+          Agree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-5" name="selected_answer" type="radio" checked="" value="Neutral"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-5"&gt;
+          Neutral
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-3" name="selected_answer" type="radio" checked="" value="Disagree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-3"&gt;
+          Disagree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;div class="govuk-radios__item"&gt;
+        &lt;input class="govuk-radios__input" id="selected_answer-4" name="selected_answer" type="radio" checked="" value="StronglyDisagree"&gt;
+        &lt;label class="govuk-label govuk-radios__label" for="selected_answer-4"&gt;
+          Strongly Disagree
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+  &lt;/fieldset&gt;</code>
+</pre>
+    </div>
+
+    <div class="snippet-tabs__container" tabindex="0" role="tabpanel" id="SCSS-tab" aria-labelledby="SCSS" hidden="">
+        <button class="snippet-copy-button js-copy-button" data-clipboard-target="#SCSS-tab">Copy</button>
+        <pre id="SCSS-content"><code class="language-css">.app-question {
+  .govuk-radios__label {
+    padding-top: 11px; // vertically align labels to radio buttons
+  }
+}
+
+.app-question-progress {
+  @include govuk-media-query($from: 800px) {
+    margin-bottom: govuk-spacing(5);
+  }
+}
+
+.app-question--short {
+
+  .app-error + & {
+    border-left: 5px solid $govuk-error-colour;
+    padding-left: govuk-spacing(5);
+  }
+
+  .app-question__answer {
+    margin-bottom: govuk-spacing(3);
+  }
+
+  .govuk-radios__item {
+    clear: both;
+  }
+
+  @include govuk-media-query($from: 800px) {
+    margin-bottom: govuk-spacing(8);
+    clear: both;
+    position: relative;
+    display: table;
+    width: 100%;
+
+    .govuk-radios__item {
+      width: auto;
+      clear: both;
+
+      &:nth-child(3) {
+        // Prevent 'it depends' from wrapping into two lines
+        white-space: nowrap;
+      }
+    }
+
+    .govuk-radios {
+      text-align: center;
+      position: relative;
+    }
+
+    .govuk-radios__item {
+      position: relative;
+      padding-left: 0;
+      width: 20%;
+      display: block;
+      text-align: center;
+      float: left;
+      clear: none;
+      margin: 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .govuk-radios__input + .govuk-radios__label {
+
+      &::before,
+      &::after {
+        left: calc(50% + 2px);
+        transform: translateX(-50%);
+      }
+    }
+
+    .govuk-radios__label {
+      padding-top: 3em;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .govuk-error-message {
+      margin-bottom: 0;
+    }
+
+    .app-question__question,
+    .app-question__answer {
+      display: table-cell;
+      vertical-align: middle;
+      width: 40%;
+      position: relative;
+      height: 156px;
+    }
+
+    .app-question__answer {
+      width: 60%;
+    }
+
+    .govuk-fieldset__heading {
+      padding-right: govuk-spacing(5);
+
+    }
+
+    .app-question__question {
+      border-right: 1px solid govuk-colour('black');
+    }
+
+    .govuk-form-group {
+      margin-bottom: 0;
+    }
+
+  }
+}
+
+.app-question--long {
+  // margin-top: -20px;
+
+  .app-question__answer {
+    @include govuk-responsive-margin(6, "bottom");
+    @include govuk-responsive-margin(6, "top");
+  }
+
+  @include govuk-media-query($from: desktop) {
+    .app-question__question {
+      @include govuk-responsive-margin(6, "bottom");
+    }
+
+    .govuk-radios__item {
+      width: auto;
+      @include govuk-responsive-margin(6, "right");
+    }
+  }
+}
+
+.app-controls {
+  .app-button {
+    width: 100%;
+  }
+
+  .app-button,
+  .app-button--outline {
+    @include govuk-media-query($from: desktop) {
+      margin-left: govuk-spacing(3);
+    }
+  }
+
+  .app-button--outline {
+    display: block;
+    text-align: center;
+    margin-bottom: govuk-spacing(3);
+    line-height: 1;
+    padding-top: 10px;
+    padding-bottom: 7px;
+    @include govuk-media-query($from: desktop) {
+      display: inline-block;
+    }
+  }
+}</code>
+</pre>
+    </div>
+</div>
+
+<h2>Dependencies</h2>
+<p>The components the pattern uses are <a href="https://design-system.service.gov.uk/styles/typography">gov.uk-heading-xl</a> paired with <a href="https://design-system.service.gov.uk/components/radios">inline radios</a> with the descriptive text centrally aligned below each radio.</p>
+
+<h2>Background</h2>
+<p> When eliciting user sentiment, the benefit of the Likert scale is that they use a questions use a scale. This means people are not forced to express an either-or opinion, allowing them to be neutral should they so choose. The pattern follows the gov.uk guiding principle of one thing per page.</p>
+<p>Use of the traditional vertical radio buttons creates a false hierarchy of content. User research which has shown that users react poorly to the traditional format of vertically stacked radios, which they interpret as the service ‘ranking’ them. Unlike other Government services where the user is required to answer as specifically as possible, this service is more nuanced. For example "I set myself targets when I have things to do, and usually meet them" doesn't have a binary answer.</p>
+<p>By using the horizontal format of radios we can avoid the perception that the product is ‘ranking’ them. The reason the radios are inline with the statement is to fit with right-to-left mental model of how english-speaking users (whom our service is solely available to).</p>
+
+<h2>When to use</h2>
+<p>The Likert scale format should be used for a question or statement that requires a Likert scale response. </p>
+<p>This should be used for questions or statements which are asking the user only one thing per page.</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<h2>Research</h2>
+<h3>Research findings</h3>
+<p>When we tested vertically stacked format of radio buttons, users interpret the response at the top as the most desirable choice, which therefore biases the user towards the ranking they believe to be ‘best’.</p>
+<p>Theme: ‘Customers preferred the answer options presented horizontally for different reasons’</p>
+<a class="govuk-body" href="https://skillsfundingagency.atlassian.net/wiki/download/attachments/834240679/Customers%20short%20assessment%20-%20alpha_%20insights%20and%20evidence.pages?api=v2">Confluence report</a>
+
+
+
+
+
+
+
+    {% endblock %}
